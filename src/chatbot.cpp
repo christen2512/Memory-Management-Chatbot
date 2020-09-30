@@ -20,7 +20,7 @@ ChatBot::ChatBot()
 // constructor WITH memory allocation
 ChatBot::ChatBot(std::string filename)
 {
-    std::cout << "ChatBot Constructor" << std::endl;
+    std::cout << "ChatBot Constructorsssss" << std::endl;
     
     // invalidate data handles
     _chatLogic = nullptr;
@@ -32,7 +32,7 @@ ChatBot::ChatBot(std::string filename)
 
 ChatBot::~ChatBot()
 {
-    std::cout << "ChatBot Destructor" << std::endl;
+    std::cout << "ChatBot Destructorssssss" << std::endl;
 
     // deallocate heap memory
     if(_image != NULL) // Attention: wxWidgets used NULL and not nullptr
@@ -44,7 +44,45 @@ ChatBot::~ChatBot()
 
 //// STUDENT CODE
 ////
-
+//Applying Rule of Five
+ChatBot::ChatBot(const ChatBot &source){
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _image = new wxBitmap(*source._image);
+    std::cout <<"Copy Constructor of instance "<< &source << " has been called at instance " << this << '\n';
+}
+ChatBot &ChatBot::operator=(const ChatBot &source){
+    std::cout <<"Assigning content of instance " << &source <<" to instance " << this << '\n';
+    if(this == &source)
+        return *this;
+    delete _image;
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _image = new wxBitmap(*source._image);
+    return *this;  
+} 
+ChatBot::ChatBot(ChatBot &&source){
+    std::cout <<"Moving instance " << &source << " to instance " << this << '\n';
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _image = new wxBitmap(*source._image);
+    source._chatLogic = nullptr;
+    source._rootNode = nullptr;
+    source._image = nullptr;
+}
+ChatBot &ChatBot::operator=(ChatBot &&source){
+    std::cout <<"Moving (assign operator) instance " << &source << " to instance " << this <<'\n';
+    if(this == &source)
+        return *this;
+    delete _image;
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _image = new wxBitmap(*source._image);
+    source._chatLogic = nullptr;
+    source._currentNode = nullptr;
+    source._image = nullptr;
+    return *this; 
+}
 ////
 //// EOF STUDENT CODE
 
