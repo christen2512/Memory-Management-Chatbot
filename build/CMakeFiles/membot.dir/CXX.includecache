@@ -6,10 +6,46 @@
 
 #IncludeRegexTransform: 
 
+/home/christen/info/CppND-Memory-Management-Chatbot/src/chatbot.cpp
+iostream
+-
+random
+-
+algorithm
+-
+ctime
+-
+chatlogic.h
+/home/christen/info/CppND-Memory-Management-Chatbot/src/chatlogic.h
+graphnode.h
+/home/christen/info/CppND-Memory-Management-Chatbot/src/graphnode.h
+graphedge.h
+/home/christen/info/CppND-Memory-Management-Chatbot/src/graphedge.h
+chatbot.h
+/home/christen/info/CppND-Memory-Management-Chatbot/src/chatbot.h
+
 /home/christen/info/CppND-Memory-Management-Chatbot/src/chatbot.h
 wx/bitmap.h
 -
 string
+-
+
+/home/christen/info/CppND-Memory-Management-Chatbot/src/chatgui.cpp
+wx/filename.h
+-
+wx/colour.h
+-
+wx/image.h
+-
+string
+-
+chatbot.h
+/home/christen/info/CppND-Memory-Management-Chatbot/src/chatbot.h
+chatlogic.h
+/home/christen/info/CppND-Memory-Management-Chatbot/src/chatlogic.h
+chatgui.h
+/home/christen/info/CppND-Memory-Management-Chatbot/src/chatgui.h
+memory
 -
 
 /home/christen/info/CppND-Memory-Management-Chatbot/src/chatgui.h
@@ -50,11 +86,23 @@ string
 chatgui.h
 /home/christen/info/CppND-Memory-Management-Chatbot/src/chatgui.h
 
+/home/christen/info/CppND-Memory-Management-Chatbot/src/graphedge.cpp
+graphnode.h
+/home/christen/info/CppND-Memory-Management-Chatbot/src/graphnode.h
+graphedge.h
+/home/christen/info/CppND-Memory-Management-Chatbot/src/graphedge.h
+
 /home/christen/info/CppND-Memory-Management-Chatbot/src/graphedge.h
 vector
 -
 string
 -
+
+/home/christen/info/CppND-Memory-Management-Chatbot/src/graphnode.cpp
+graphedge.h
+/home/christen/info/CppND-Memory-Management-Chatbot/src/graphedge.h
+graphnode.h
+/home/christen/info/CppND-Memory-Management-Chatbot/src/graphnode.h
 
 /home/christen/info/CppND-Memory-Management-Chatbot/src/graphnode.h
 vector
