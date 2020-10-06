@@ -29,6 +29,7 @@ ChatLogic::~ChatLogic()
     ////
 
     std::cout << "Destructor has been called (ChatLogic) " << '\n';
+    delete _chatBot;
     ////
     //// EOF STUDENT CODE
 }

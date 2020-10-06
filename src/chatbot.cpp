@@ -47,6 +47,7 @@ ChatBot::~ChatBot()
 //Applying Rule of Five
 ChatBot::ChatBot(const ChatBot &source){
     _chatLogic = source._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
     _rootNode = source._rootNode;
     _image = new wxBitmap(*source._image);
     std::cout <<"ChatBot Copy Constructor\n";
@@ -57,6 +58,7 @@ ChatBot &ChatBot::operator=(const ChatBot &source){
         return *this;
     delete _image;
     _chatLogic = source._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
     _rootNode = source._rootNode;
     _image = new wxBitmap(*source._image);
     return *this;  
@@ -64,6 +66,7 @@ ChatBot &ChatBot::operator=(const ChatBot &source){
 ChatBot::ChatBot(ChatBot &&source){
     std::cout <<"ChatBot Move Constructor\n";
     _chatLogic = source._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
     _rootNode = source._rootNode;
     _image = new wxBitmap(*source._image);
     source._chatLogic = nullptr;
@@ -76,6 +79,7 @@ ChatBot &ChatBot::operator=(ChatBot &&source){
         return *this;
     delete _image;
     _chatLogic = source._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
     _rootNode = source._rootNode;
     _image = new wxBitmap(*source._image);
     source._chatLogic = nullptr;
