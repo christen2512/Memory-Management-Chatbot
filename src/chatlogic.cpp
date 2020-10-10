@@ -29,7 +29,6 @@ ChatLogic::~ChatLogic()
     ////
 
     std::cout << "Destructor has been called (ChatLogic) " << '\n';
-    delete _chatBot;
     ////
     //// EOF STUDENT CODE
 }
@@ -115,6 +114,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                         // create new element if ID does not yet exist
                         if (newNode == _nodes.end())
                         {
+                            //_nodes.emplace_back(new GraphNode(id));
                             _nodes.emplace_back(std::make_unique<GraphNode>(id));
                             newNode = _nodes.end() - 1; // get iterator to last element
 
@@ -133,7 +133,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                         ////
 
                         // find tokens for incoming (parent) and outgoing (child) node
-                        auto parentToken = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair) { return pair.first == "PARENT"; });
+                     auto parentToken = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair) { return pair.first == "PARENT"; });
                         auto childToken = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair) { return pair.first == "CHILD"; });
 
                         if (parentToken != tokens.end() && childToken != tokens.end())
@@ -143,9 +143,10 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                             auto childNode = std::find_if(_nodes.begin(), _nodes.end(), [&childToken](std::unique_ptr<GraphNode>& node) { return node->GetID() == std::stoi(childToken->second); });
 
                             // create new edge
+                            //GraphEdge *edge = new GraphEdge(id);
                             std::unique_ptr<GraphEdge> edge = std::make_unique<GraphEdge>(id);
-                            edge->SetParentNode((*parentNode).get());
                             edge->SetChildNode((*childNode).get());
+                            edge->SetParentNode((*parentNode).get());
 
                             // find all keywords for current node
                             AddAllTokensToElement("KEYWORD", tokens, *edge);

@@ -1,17 +1,19 @@
 #include "graphedge.h"
 #include "graphnode.h"
+#include <iostream>
 
 GraphNode::GraphNode(int id)
 {
     _id = id;
+    std::cout <<"Constructor has been called (GraphNode)\n";
 }
 
 GraphNode::~GraphNode()
 {
     //// STUDENT CODE
     ////
-
-    //no need to delete _chatBot 
+    std::cout <<"Destructor has been called (GraphNode)\n";
+     //delete_chatBot;
 
     ////
     //// EOF STUDENT CODE

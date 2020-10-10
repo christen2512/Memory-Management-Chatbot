@@ -117,7 +117,7 @@ ChatBotPanelDialog::ChatBotPanelDialog(wxWindow *parent, wxWindowID id)
 
     //// STUDENT CODE
     ////
-
+    std::cout <<"Constructor has been called (ChatBotPanelDialog)\n";
     // create chat logic instance
     _chatLogic =  std::make_unique <ChatLogic>(); 
 
@@ -135,8 +135,8 @@ ChatBotPanelDialog::~ChatBotPanelDialog()
 {
     //// STUDENT CODE
     ////
-
-    delete _chatLogic.get();
+    std::cout <<"Destructor has been called (ChatBotPanelDialog)\n"; 
+    //deleting _chatLogic.get() causes a segfault;
 
     ////
     //// EOF STUDENT CODE
